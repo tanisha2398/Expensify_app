@@ -5,8 +5,16 @@ console.log("app.js running");
 //JSX
 var appObj = {
   title: "My React App",
-  subTitle: "It has a great community"
+  subTitle: "It has a great community",
+  options: []
 };
+// function showOption(options) {
+//   if (options) {
+//     return <p>Here are your options:{options}</p>;
+//   } else {
+//     return "nO options";
+//   }
+// }
 var template = React.createElement(
   "div",
   null,
@@ -15,10 +23,15 @@ var template = React.createElement(
     null,
     appObj.title
   ),
-  React.createElement(
+  appObj.subTitle && React.createElement(
     "p",
     null,
     appObj.subTitle
+  ),
+  React.createElement(
+    "p",
+    null,
+    appObj.options.length > 0 ? "Here are your options " + appObj.options : "No Options"
   ),
   React.createElement(
     "ol",
@@ -59,16 +72,16 @@ var templateTwo = React.createElement(
   React.createElement(
     "h1",
     null,
-    user.name
+    user.name ? user.name : "Anonymous"
   ),
-  React.createElement(
+  user.age && user.age >= 18 && React.createElement(
     "p",
     null,
     "Age:",
-    userAge
+    user.age
   ),
   getLocation(user.location)
 );
 var appRoot = document.getElementById("app");
 
-ReactDOM.render(templateTwo, appRoot);
+ReactDOM.render(template, appRoot);
