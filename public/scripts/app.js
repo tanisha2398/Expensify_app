@@ -6,7 +6,7 @@ console.log("app.js running");
 var appObj = {
   title: "My React App",
   subTitle: "It has a great community",
-  options: []
+  options: ["one", "two"]
 };
 // function showOption(options) {
 //   if (options) {
@@ -63,9 +63,9 @@ function getLocation(location) {
     );
   }
 }
-var userName = "Himani";
-var userAge = 21;
-var userLocation = "Rajasthan";
+// var userName = "Himani";
+// var userAge = 21;
+// var userLocation = "Rajasthan";
 var templateTwo = React.createElement(
   "div",
   null,
