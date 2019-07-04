@@ -1,53 +1,110 @@
 "use strict";
 
-var add = function add(a, b) {
-  //   console.log(arguments);
-  return a + b;
-};
-console.log(add(2, 3));
+console.log("app.js running");
 
-// const user = {
-//   name: "Tanisha",
-//   cities: ["rawatbhata", "dehradun", "kota"],
-//   printPlacesLived: function() {
-//     // console.log(this.name);
-//     // console.log(this.cities);
-//     const that = this;
-//     this.cities.forEach(function(city) {
-//       console.log(that.name + "has lived in  " + city);
-//     });
+//JSX
+var appObj = {
+  title: "My React App",
+  subTitle: "It has a great community",
+  options: ["one", "two"]
+};
+// function showOption(options) {
+//   if (options) {
+//     return <p>Here are your options:{options}</p>;
+//   } else {
+//     return "nO options";
 //   }
+// }
+var template = React.createElement(
+  "div",
+  null,
+  React.createElement(
+    "h1",
+    null,
+    appObj.title
+  ),
+  appObj.subTitle && React.createElement(
+    "p",
+    null,
+    appObj.subTitle
+  ),
+  React.createElement(
+    "p",
+    null,
+    appObj.options.length > 0 ? "Here are your options " + appObj.options : "No Options"
+  ),
+  React.createElement(
+    "ol",
+    null,
+    React.createElement(
+      "li",
+      null,
+      "Item one"
+    ),
+    React.createElement(
+      "li",
+      null,
+      "Item two"
+    )
+  )
+);
+var count = 0;
+var addOne = function addOne() {
+  console.log("addOne");
+};
+var minusOne = function minusOne() {
+  console.log("minusOne");
+};
+var reset = function reset() {
+  console.log("reset");
+};
+var templateTwo = React.createElement(
+  "div",
+  null,
+  React.createElement(
+    "h1",
+    null,
+    "Count:",
+    count
+  ),
+  React.createElement(
+    "button",
+    { onClick: addOne },
+    "+1"
+  ),
+  React.createElement(
+    "button",
+    { onClick: minusOne },
+    "-1"
+  ),
+  React.createElement(
+    "button",
+    { onClick: reset },
+    "Reset"
+  )
+);
+console.log(templateTwo);
+// const user = {
+//   name: "tani",
+//   age: 21,
+//   location: "kota"
 // };
-// user.printPlacesLived();
-var user = {
-  name: "Tanisha",
-  cities: ["rawatbhata", "dehradun", "kota"],
-  printPlacesLived: function printPlacesLived() {
-    var _this = this;
+// function getLocation(location) {
+//   if (location) {
+//     return <p>Location:{location}</p>;
+//   }
+// }
+// // var userName = "Himani";
+// // var userAge = 21;
+// // var userLocation = "Rajasthan";
+// const templateTwo = (
+//   <div>
+//     <h1>{user.name ? user.name : "Anonymous"}</h1>
 
-    return this.cities.map(function (city) {
-      return _this.name + " has lived in " + city;
-    });
-    // return cityMessages;
-    // console.log(this.name);
-    // console.log(this.cities);
-    //   const that = this;
-    // this.cities.forEach(city => {
-    //   console.log(this.name + "has lived in  " + city);
-    // });
-  }
-};
-console.log(user.printPlacesLived());
+//     {user.age && user.age >= 18 && <p>Age:{user.age}</p>}
+//     {getLocation(user.location)}
+//   </div>
+// );
+var appRoot = document.getElementById("app");
 
-var multiplier = {
-  numbers: [1, 2, 3],
-  multiplyBy: 2,
-  multiply: function multiply() {
-    var _this2 = this;
-
-    return this.numbers.map(function (number) {
-      return number * _this2.multiplyBy;
-    });
-  }
-};
-console.log(multiplier.multiply());
+ReactDOM.render(templateTwo, appRoot);
