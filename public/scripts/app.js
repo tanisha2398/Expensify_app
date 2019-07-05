@@ -1,97 +1,36 @@
 "use strict";
 
-console.log("app.js running");
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-//JSX
-var appObj = {
-  title: "My React App",
-  subTitle: "It has a great community",
-  options: []
-};
-// function showOption(options) {
-//   if (options) {
-//     return <p>Here are your options:{options}</p>;
-//   } else {
-//     return "nO options";
-//   }
-// }
-var onFormSubmit = function onFormSubmit(e) {
-  e.preventDefault();
-  var option = e.target.elements.option.value;
-  if (option) {
-    appObj.options.push(option);
-    e.target.elements.option.value = " ";
-    renderApp();
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var Person = function () {
+  function Person() {
+    var name = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : "Anonymous";
+    var age = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
+
+    _classCallCheck(this, Person);
+
+    this.name = name;
+    this.age = age;
   }
-};
-var removeAll = function removeAll() {
-  appObj.options = [];
-  console.log(appObj.options);
-  renderApp();
-};
 
-var onMakeDecision = function onMakeDecision() {
-  var randomNum = Math.floor(Math.random() * appObj.options.length);
-  var option = appObj.options[randomNum];
-  console.log(option);
-};
+  _createClass(Person, [{
+    key: "getGreeting",
+    value: function getGreeting() {
+      return "hi i am " + this.name + " ! ";
+    }
+  }, {
+    key: "getDescription",
+    value: function getDescription() {
+      return this.name + " is " + this.age + " year(s) old";
+    }
+  }]);
 
-var appRoot = document.getElementById("app");
+  return Person;
+}();
 
-// const numbers = [23, 24, 25];
-
-var renderApp = function renderApp() {
-  var template = React.createElement(
-    "div",
-    null,
-    React.createElement(
-      "h1",
-      null,
-      appObj.title
-    ),
-    appObj.subTitle && React.createElement(
-      "p",
-      null,
-      appObj.subTitle
-    ),
-    React.createElement(
-      "p",
-      null,
-      appObj.options.length > 0 ? "Here are your options" : "No Options"
-    ),
-    React.createElement(
-      "button",
-      { disabled: appObj.options <= 0, onClick: onMakeDecision },
-      "What should I do?"
-    ),
-    React.createElement(
-      "button",
-      { onClick: removeAll },
-      "Remove All"
-    ),
-    React.createElement(
-      "ol",
-      null,
-      appObj.options.map(function (option) {
-        return React.createElement(
-          "li",
-          { key: option },
-          option
-        );
-      })
-    ),
-    React.createElement(
-      "form",
-      { onSubmit: onFormSubmit },
-      React.createElement("input", { type: "text", name: "option" }),
-      React.createElement(
-        "button",
-        null,
-        "Add Option"
-      )
-    )
-  );
-  ReactDOM.render(template, appRoot);
-};
-
-renderApp();
+var me = new Person("Tanisha Negi", 10);
+console.log(me.getDescription());
+var other = new Person();
+console.log(other);
