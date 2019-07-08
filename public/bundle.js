@@ -76,12 +76,15 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 console.log("app.js is running!!");
-console.log(__WEBPACK_IMPORTED_MODULE_1__utils_js__["b" /* square */](4));
+console.log(__WEBPACK_IMPORTED_MODULE_1__utils_js__["c" /* square */](4));
 console.log(__WEBPACK_IMPORTED_MODULE_1__utils_js__["a" /* add */](4, 2));
-console.log(__WEBPACK_IMPORTED_MODULE_0__person_js__["a" /* isAdult */](19));
-console.log(__WEBPACK_IMPORTED_MODULE_0__person_js__["a" /* isAdult */](9));
-console.log(__WEBPACK_IMPORTED_MODULE_0__person_js__["a" /* isAdult */](23));
-console.log(__WEBPACK_IMPORTED_MODULE_0__person_js__["a" /* isAdult */](9));
+console.log(__WEBPACK_IMPORTED_MODULE_1__utils_js__["b" /* default */](4, 2));
+// console.log(isAdult(19));
+// console.log(isAdult(9));
+// console.log(isAdult(23));
+// console.log(isAdult(9));
+console.log(__WEBPACK_IMPORTED_MODULE_0__person_js__["a" /* default */](9));
+console.log(__WEBPACK_IMPORTED_MODULE_0__person_js__["a" /* default */](90));
 
 
 /***/ }),
@@ -89,11 +92,13 @@ console.log(__WEBPACK_IMPORTED_MODULE_0__person_js__["a" /* isAdult */](9));
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return square; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return square; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return add; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return subtract; });
 console.log("utils.js is running");
 const square = x => x * x;
 const add = (a, b) => a + b;
+const subtract = (a, b) => a - b;
 
 
 
@@ -104,11 +109,13 @@ const add = (a, b) => a + b;
 "use strict";
 console.log("person.js is running");
 const isAdult = x => x >= 18;
-/* harmony export (immutable) */ __webpack_exports__["a"] = isAdult;
+/* unused harmony export isAdult */
 
 const canDrink = x => x >= 21;
 /* unused harmony export canDrink */
 
+const isSenior = x => x >= 65;
+/* harmony default export */ __webpack_exports__["a"] = (isSenior);
 
 
 /***/ })
