@@ -24,6 +24,7 @@
     "babel-core": "^6.25.0",
     "babel-loader": "^7.1.1",
     "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "css-loader": "^3.0.0",
     "live-server": "^1.2.1",
     "node-sass": "^4.12.0",
