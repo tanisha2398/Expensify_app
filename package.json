@@ -7,7 +7,7 @@
     "serve": "live-server public/",
     "build": "webpack",
     "dev-server": "webpack-dev-server",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "author": "",
   "license": "ISC",
@@ -20,12 +20,13 @@
     "webpack-cli": "^3.3.5"
   },
   "dependencies": {
-    "babel-cli": "^6.24.1",
+    "babel-cli": "^6.26.0",
     "babel-core": "^6.25.0",
     "babel-loader": "^7.1.1",
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "css-loader": "^3.0.0",
+    "jest": "^20.0.4",
     "live-server": "^1.2.1",
     "moment": "^2.24.0",
     "node-sass": "^4.12.0",
