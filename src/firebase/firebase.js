@@ -27,6 +27,11 @@ database
   .set({
     name: "Tanisha Negi",
     age: 21,
+    stressLevel: 6,
+    job: {
+      title: "software developer",
+      company: "Google"
+    },
     isSingle: true,
     location: {
       city: "kota",
@@ -39,7 +44,14 @@ database
   .catch(error => {
     console.log("this failed:", error);
   });
-database.ref("isSingle").set(null);
+
+database.ref().update({
+  stressLevel: 9,
+  "job/company": "Amazon",
+  "location/city": "Udaipur"
+});
+
+// database.ref("isSingle").set(null);
 // database.ref().set("this is my day");
 
 // database.ref("age").set(24);
