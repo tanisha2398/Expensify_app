@@ -14,23 +14,65 @@ firebase.initializeApp(firebaseConfig);
 
 const database = firebase.database();
 
-const valueChange = database.ref().on("value", snapshot => {
-  console.log(
-    snapshot.val().name +
-      " is a " +
-      snapshot.val().job.title +
-      " at " +
-      snapshot.val().job.company
-  );
+database.ref("expense").push({
+  description: "gas",
+  note: "for may month",
+  amount: 12345,
+  createdAt: 2345
 });
 
-setTimeout(() => {
-  database.ref("name").set("himmu");
-}, 3500);
+// database.ref("notes/-LkFhICQOmRnxJO3CeTS").remove();
 
-setTimeout(() => {
-  database.ref("job/title").set("manager");
-}, 7500);
+// database.ref("notes").push({
+//   title: "to do course",
+//   body: "react ,node"
+// });
+
+// const firebaseNotes={
+//     notes:{
+//         asdf:{
+//             title: "1st note",
+//             body: "this is my 1st note"
+//         },
+//         zxcv:{
+//             title: "another note",
+//     body: "this is my 2nd  note"
+//         }
+//     }
+// }
+
+// const notes = [
+//   {
+//     id: "12",
+//     title: "1st note",
+//     body: "this is my 1st note"
+//   },
+//   {
+//     id: "1fcgh2",
+//     title: "another note",
+//     body: "this is my 2nd  note"
+//   }
+// ];
+
+// database.ref("notes").set(notes);
+
+// const valueChange = database.ref().on("value", snapshot => {
+//   console.log(
+//     snapshot.val().name +
+//       " is a " +
+//       snapshot.val().job.title +
+//       " at " +
+//       snapshot.val().job.company
+//   );
+// });
+
+// setTimeout(() => {
+//   database.ref("name").set("himmu");
+// }, 3500);
+
+// setTimeout(() => {
+//   database.ref("job/title").set("manager");
+// }, 7500);
 
 // const valueChange = database.ref().on(
 //   "value",
