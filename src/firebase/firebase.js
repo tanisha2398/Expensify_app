@@ -14,22 +14,38 @@ firebase.initializeApp(firebaseConfig);
 
 const database = firebase.database();
 
-database.ref().set({
-  name: "Tanisha Negi",
-  age: 21,
-  isSingle: true,
-  location: {
-    city: "kota",
-    country: "India"
-  }
-});
+database
+  .ref()
+  .set({
+    name: "Tanisha Negi",
+    age: 21,
+    isSingle: true,
+    location: {
+      city: "kota",
+      country: "India"
+    }
+  })
+  .then(() => {
+    console.log("data is saved!");
+  })
+  .catch(error => {
+    console.log("this failed:", error);
+  });
 
 // database.ref().set("this is my day");
 
-database.ref("age").set(24);
-database.ref("location/city").set("jaipur");
-database.ref("attribute").set({
-  height: 123,
-  weight: 58
-});
+// database.ref("age").set(24);
+// database.ref("location/city").set("jaipur");
+database
+  .ref("attribute")
+  .set({
+    height: 123,
+    weight: 58
+  })
+  .then(() => {
+    console.log("attribute is saved!");
+  })
+  .catch(e => {
+    console.log("error:", e);
+  });
 // database.ref("attribute/weight").set(50);
