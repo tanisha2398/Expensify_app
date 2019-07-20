@@ -14,6 +14,43 @@ firebase.initializeApp(firebaseConfig);
 
 const database = firebase.database();
 
+database.ref("expense").on("child_removed", snapshot => {
+  console.log(snapshot.key, snapshot.val());
+});
+
+database.ref("expense").on("child_changed", snapshot => {
+  console.log(snapshot.key, snapshot.val());
+});
+
+database.ref("expense").on("child_added", snapshot => {
+  console.log(snapshot.key, snapshot.val());
+});
+
+// const valueChange = database.ref("expense").on("value", snapshot => {
+//   const expense = [];
+//   snapshot.forEach(childSnapshot => {
+//     expense.push({
+//       id: childSnapshot.key,
+//       ...childSnapshot.val()
+//     });
+//   });
+//   console.log(expense);
+// });
+
+// database
+//   .ref("expense")
+//   .once("value")
+//   .then(snapshot => {
+//     const expense = [];
+//     snapshot.forEach(childSnapshot => {
+//       expense.push({
+//         id: childSnapshot.key,
+//         ...childSnapshot.val()
+//       });
+//     });
+//     console.log(expense);
+//   });
+
 database.ref("expense").push({
   description: "gas",
   note: "for may month",
