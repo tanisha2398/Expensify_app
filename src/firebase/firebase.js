@@ -13,7 +13,15 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 
 const database = firebase.database();
-
+// database
+//   .ref()
+//   .remove()
+//   .then(() => {
+//     console.log("data removed");
+//   })
+//   .catch(e => {
+//     console.log("did not remove data", e);
+//   });
 database
   .ref()
   .set({
@@ -31,21 +39,21 @@ database
   .catch(error => {
     console.log("this failed:", error);
   });
-
+database.ref("isSingle").set(null);
 // database.ref().set("this is my day");
 
 // database.ref("age").set(24);
 // database.ref("location/city").set("jaipur");
-database
-  .ref("attribute")
-  .set({
-    height: 123,
-    weight: 58
-  })
-  .then(() => {
-    console.log("attribute is saved!");
-  })
-  .catch(e => {
-    console.log("error:", e);
-  });
+// database
+//   .ref("attribute")
+//   .set({
+//     height: 123,
+//     weight: 58
+//   })
+//   .then(() => {
+//     console.log("attribute is saved!");
+//   })
+//   .catch(e => {
+//     console.log("error:", e);
+//   });
 // database.ref("attribute/weight").set(50);
