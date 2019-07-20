@@ -13,6 +13,56 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 
 const database = firebase.database();
+
+const valueChange = database.ref().on("value", snapshot => {
+  console.log(
+    snapshot.val().name +
+      " is a " +
+      snapshot.val().job.title +
+      " at " +
+      snapshot.val().job.company
+  );
+});
+
+setTimeout(() => {
+  database.ref("name").set("himmu");
+}, 3500);
+
+setTimeout(() => {
+  database.ref("job/title").set("manager");
+}, 7500);
+
+// const valueChange = database.ref().on(
+//   "value",
+//   snapshot => {
+//     console.log(snapshot.val());
+//   },
+//   e => {
+//     console.log("error with data fetching", e);
+//   }
+// );
+
+// setTimeout(() => {
+//   database.ref("age").set(29);
+// }, 3500);
+// setTimeout(() => {
+//   database.ref().off(onvolumechange);
+// }, 7500);
+// setTimeout(() => {
+//   database.ref("age").set(30);
+// }, 10500);
+
+// database
+//   .ref("location/city ")
+//   .once("value")
+//   .then(snapshot => {
+//     const val = snapshot.val();
+//     console.log(val);
+//   })
+//   .catch(e => {
+//     console.log("error fetching data:", e);
+//   });
+
 // database
 //   .ref()
 //   .remove()
@@ -22,34 +72,34 @@ const database = firebase.database();
 //   .catch(e => {
 //     console.log("did not remove data", e);
 //   });
-database
-  .ref()
-  .set({
-    name: "Tanisha Negi",
-    age: 21,
-    stressLevel: 6,
-    job: {
-      title: "software developer",
-      company: "Google"
-    },
-    isSingle: true,
-    location: {
-      city: "kota",
-      country: "India"
-    }
-  })
-  .then(() => {
-    console.log("data is saved!");
-  })
-  .catch(error => {
-    console.log("this failed:", error);
-  });
+// database
+//   .ref()
+//   .set({
+//     name: "Tanisha Negi",
+//     age: 21,
+//     stressLevel: 6,
+//     job: {
+//       title: "software developer",
+//       company: "Google"
+//     },
+//     isSingle: true,
+//     location: {
+//       city: "kota",
+//       country: "India"
+//     }
+//   })
+//   .then(() => {
+//     console.log("data is saved!");
+//   })
+//   .catch(error => {
+//     console.log("this failed:", error);
+//   });
 
-database.ref().update({
-  stressLevel: 9,
-  "job/company": "Amazon",
-  "location/city": "Udaipur"
-});
+// database.ref().update({
+//   stressLevel: 9,
+//   "job/company": "Amazon",
+//   "location/city": "Udaipur"
+// });
 
 // database.ref("isSingle").set(null);
 // database.ref().set("this is my day");
