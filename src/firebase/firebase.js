@@ -14,17 +14,19 @@ firebase.initializeApp(firebaseConfig);
 
 const database = firebase.database();
 
-database.ref("expense").on("child_removed", snapshot => {
-  console.log(snapshot.key, snapshot.val());
-});
+export { firebase, database as default };
 
-database.ref("expense").on("child_changed", snapshot => {
-  console.log(snapshot.key, snapshot.val());
-});
+// database.ref("expense").on("child_removed", snapshot => {
+//   console.log(snapshot.key, snapshot.val());
+// });
 
-database.ref("expense").on("child_added", snapshot => {
-  console.log(snapshot.key, snapshot.val());
-});
+// database.ref("expense").on("child_changed", snapshot => {
+//   console.log(snapshot.key, snapshot.val());
+// });
+
+// database.ref("expense").on("child_added", snapshot => {
+//   console.log(snapshot.key, snapshot.val());
+// });
 
 // const valueChange = database.ref("expense").on("value", snapshot => {
 //   const expense = [];
@@ -51,12 +53,12 @@ database.ref("expense").on("child_added", snapshot => {
 //     console.log(expense);
 //   });
 
-database.ref("expense").push({
-  description: "gas",
-  note: "for may month",
-  amount: 12345,
-  createdAt: 2345
-});
+// database.ref("expense").push({
+//   description: "gas",
+//   note: "for may month",
+//   amount: 12345,
+//   createdAt: 2345
+// });
 
 // database.ref("notes/-LkFhICQOmRnxJO3CeTS").remove();
 
