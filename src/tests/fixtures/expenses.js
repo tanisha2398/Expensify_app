@@ -1,6 +1,6 @@
 import moment from "moment";
 const expenses = [
-  { id: "1", description: "Gum", note: "", amount: 195, createdAt: moment(0) },
+  { id: "1", description: "Gum", note: "", amount: 195, createdAt: 0 },
   {
     id: "2",
     description: "Rent",
