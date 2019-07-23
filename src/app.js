@@ -9,7 +9,7 @@ import getVisibleExpenses from "./selectors/expenses";
 import "normalize.css/normalize.css";
 import "./styles/styles.scss";
 import "react-dates/lib/css/_datepicker.css";
-import "./firebase/firebase";
+import { firebase } from "./firebase/firebase";
 
 const store = configureStore();
 console.log("testing");
@@ -23,4 +23,11 @@ store.dispatch(startSetExpenses()).then(() => {
   ReactDOM.render(jsx, document.getElementById("app"));
 });
 
+firebase.auth().onAuthStateChanged(user => {
+  if (user) {
+    console.log("login");
+  } else {
+    console.log("logout");
+  }
+});
 // ReactDOM.render(<AppRouter />, document.getElementById("app"));
