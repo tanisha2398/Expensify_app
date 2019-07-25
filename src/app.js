@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
 import AppRouter, { history } from "./routers/AppRouter";
 import configureStore from "./store/configureStore";
+import LoadingPage from "./components/LoadingPage";
 import { startSetExpenses } from "./actions/expenses";
 import { login, logout } from "./actions/auth";
 import getVisibleExpenses from "./selectors/expenses";
@@ -27,22 +28,22 @@ const renderApp = () => {
   }
 };
 
-ReactDOM.render(<p>loading...</p>, document.getElementById("app"));
+ReactDOM.render(<LoadingPage />, document.getElementById("app"));
 
-firebase.auth().onAuthStateChanged(user => {
-  if (user) {
-    store.dispatch(login(user.uid));
-    console.log("uid", user.uid);
-    store.dispatch(startSetExpenses()).then(() => {
-      renderApp();
-      if (history.location.pathname === "/") {
-        history.push("/dashboard");
-      }
-    });
-  } else {
-    store.dispatch(logout());
-    renderApp();
-    history.push("/");
-  }
-});
+// firebase.auth().onAuthStateChanged(user => {
+//   if (user) {
+//     store.dispatch(login(user.uid));
+//     console.log("uid", user.uid);
+//     store.dispatch(startSetExpenses()).then(() => {
+//       renderApp();
+//       if (history.location.pathname === "/") {
+//         history.push("/dashboard");
+//       }
+//     });
+//   } else {
+//     store.dispatch(logout());
+//     renderApp();
+//     history.push("/");
+//   }
+// });
 // ReactDOM.render(<AppRouter />, document.getElementById("app"));
