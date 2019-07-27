@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
-import { startLogin } from "../actions/auth";
-export const LoginPage = ({ startLogin }) => {
+import { startLogin, startFacebookLogin } from "../actions/auth";
+export const LoginPage = ({ startLogin, startFacebookLogin }) => {
   return (
     <div className="box-layout">
       <div className="box-layout__box">
@@ -10,13 +10,17 @@ export const LoginPage = ({ startLogin }) => {
         <button className="button" onClick={startLogin}>
           Login with Google
         </button>
+        <button className="button" onClick={startFacebookLogin}>
+          Login with Facebook
+        </button>
       </div>
     </div>
   );
 };
 
 const mapDispatchToProps = dispatch => ({
-  startLogin: () => dispatch(startLogin())
+  startLogin: () => dispatch(startLogin()),
+  startFacebookLogin: () => dispatch(startFacebookLogin())
 });
 
 export default connect(
